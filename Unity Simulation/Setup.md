@@ -31,7 +31,7 @@ The observation space of the agents in the simulation are rays that come out of 
 
 Current State:
 
-The rays that come out of the back of the agent's game object have been removed because we cannot collect data about what is behind the rc cars.
+2V2 fields and 1v1 fields have been created to simulate the movement further. Movement parameters have been adjusted.
 
 Future Work:
 
