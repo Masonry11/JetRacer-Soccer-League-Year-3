@@ -12,19 +12,6 @@ Future Work:
 
 The size and weight of the cars, friction of the wheels, etc. must also be replicated. This can be done by modifying the game objects of the agents in Unity.
 
-### Action Space
-
-The example simulation uses discrete values for its action space. This means that the agents in the example simulation can move left, right, forward, and backwards. In efforts to make the agents in the simulation behave like our rc cars, we must modify the action space to take continuous values of throttle and steering angle.
-
-Current State:
-
-The [AgentSoccer.cs script](./AgentSoccer.cs) has been modified to roughly replicate the rc car movement behavior. The expected output from the trained model should be continuous values between -1 and 1 for both the throttle and steering angle.
-
-Future Work:
-
-The vehicles movement in the simulation must be represented roughly one to one with our real life rc cars. This will involve modifying the movement behaviour of the agents in the simulation in the [AgentSoccer.cs script](./AgentSoccer.cs). 
-
-
 ### Observation Space
 
 The observation space of the agents in the simulation are rays that come out of the agent's game object in equally spaced intervals. These rays detect the class of an object (ball, ally car, enemy car, ally goal, enemy goal, boundary) and its respective distance.
