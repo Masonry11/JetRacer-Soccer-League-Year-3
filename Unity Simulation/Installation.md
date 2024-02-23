@@ -212,10 +212,3 @@ The [Getting Started](Getting-Started.md) guide contains several short tutorials
 on setting up the ML-Agents Toolkit within Unity, running a pre-trained model,
 in addition to building and training environments.
 
-## Help
-
-If you run into any problems regarding ML-Agents, refer to our [FAQ](FAQ.md) and
-our [Limitations](Limitations.md) pages. If you can't find anything please
-[submit an issue](https://github.com/Unity-Technologies/ml-agents/issues) and
-make sure to cite relevant information on OS, Python version, and exact error
-message (whenever possible).
