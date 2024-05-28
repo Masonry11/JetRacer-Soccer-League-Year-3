@@ -1,0 +1,10 @@
+<launch>
+    <node name="strategy" pkg="jetracer_direct" type="strategy.py" output="screen"/>
+    <node name="detector" pkg="jetracer_direct" type="detector.py" output="screen"/>
+    <rosparam command="load" file="$(find jetracer_direct)/param.yaml" />
+    <node name="strike" pkg="jetracer_direct" type="strike.py" output="screen"/>
+    <node name="search" pkg="jetracer_direct" type="search.py" output="screen"/>
+    <node name="motor_control" pkg="jetracer_direct" type="motor_control.py" output="screen"/>
+    <node name="defense" pkg="jetracer_direct" type="defense.py" output="screen"/>
+    <node name="turn_180" pkg="jetracer_direct" type="turn_180.py" output="screen"/>
+</launch>
