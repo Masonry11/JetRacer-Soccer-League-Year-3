@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+#JetRacer Defense utilizes the position and depth data from the ZED2 camera to drive towards
+# a cross located next to the JetRacer car's own goal and stop with enough room to turn around
 
 import rospy
 import time
@@ -38,6 +40,7 @@ class StateMachine():
 		elif(self.state == States.flip):
 			pass
 
+	#Ensure published angle is within bounds 
 	def angle_limit(self, angle):
 		if(angle > 180):
 			return 180
@@ -45,7 +48,8 @@ class StateMachine():
 			return 0
 		else:
 			return angle
-			
+
+	#Ensure published steering value is within bounds 
 	def steer_rect_limit(self, steer):
 		steer = 180 - steer
 		if(steer > 120):
@@ -55,6 +59,7 @@ class StateMachine():
 		else:
 			return steer
 						
+	#Determine correct steering and camera angles, and throttle value from provided error
 	def output(self, error):
 		if(self.state == States.defend):
 			if ((error < 800) and (error > 600)):
@@ -84,7 +89,7 @@ class StateMachine():
 			self.steer_prev = self.steer
 			self.angle_prev = self.angle
 
-
+#Class that controls JetRacer defensive strategy
 class Defense():
 	def __init__(self):
 		sm = StateMachine()
@@ -107,6 +112,7 @@ class Defense():
 					sm.transition(self.distance)
 					self.updated = False
 
+	#Callback to receive data from CV model
 	def objects_stamped_callback(self, data):
 		lock = False
 		for object in data.objects:
@@ -115,7 +121,8 @@ class Defense():
 				self.distance = object.distance
 				self.updated = True
 				lock = True
-		
+	
+	#Callback to receive data from strategy topic	
 	def strategy_callback(self, data):
 		self.strategy = data.strategy
 
