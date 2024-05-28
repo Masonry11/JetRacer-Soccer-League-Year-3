@@ -5,6 +5,8 @@ import rospy
 from adafruit_servokit import ServoKit
 from jetracer_direct.msg import motor_msg
 
+# Motor class subscribes to the motor control message, which contains a throttle value, camera angle, and steering angle. 
+# The adafruit_servokit library is then used to write these values to the appropriate location
 class Motor():
 	def __init__(self):
 		self.kit = ServoKit(channels=16)
